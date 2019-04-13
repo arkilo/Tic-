@@ -54,6 +54,15 @@ def is_available(number):
 		return False
 	else:
 		return True
+
+def player_won(number_1,number_2,number_3):
+	if board_map[number_1] and board_map[number_2] and board_map[number_3] == 'X':
+		print("You won dickwad")
+
+def computer_won(number_1,number_2,number_3):
+	if board_map[number_1] and board_map[number_2] and board_map[number_3] == '0':
+		print("Your future AI overlord won dipshit")
+
 #computer play
 def computer_move():
 	#total possible ways of winning include 3 vertical, 3 horizontal, 2 diagonal
