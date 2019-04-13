@@ -4,7 +4,7 @@ import os
 
 board_map= {1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9}
 #total places are nine so only nine attempts allowed total
-state_number = 0
+state_number = 1
 
 #make a board
 def make_board():
