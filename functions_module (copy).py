@@ -5,7 +5,6 @@ import os
 board_map= {1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9}
 #total places are nine so only nine attempts allowed total
 state_number = 1
-won_state = 0
 
 #make a board
 def make_board():
@@ -59,26 +58,17 @@ def is_available(number):
 def player_won(number_1,number_2,number_3):
 	if board_map[number_1] == 'X' and board_map[number_2] == 'X' and board_map[number_3] == 'X':
 		print("You won dickwad, go fuck yourself.")
-		global won_state
-		won_state +=1
-		print("won state is {}".format(won_state))
 	else:
 		pass
 def computer_won(number_1,number_2,number_3):
 	if board_map[number_1] == '0' and board_map[number_2] == '0' and board_map[number_3] == '0':
 		print("Your AI overlord won, go fuck yourself")
-		global won_state
-		won_state +=1
-		print("won state is {}".format(won_state))
-
-
 	else:
 		pass
+
 def move_logic(no_1,no_2,no_3):
 	if board_map[no_1] == 'X' and board_map[no_2] == 'X' and is_available(no_3):
 		computer_game_input(no_3)
-		global state_variable
-		state_variable +=1
 
 #computer play
 def computer_move():
@@ -90,32 +80,58 @@ def computer_move():
 
 	#shitty linear logic tyme
 		#vertical all combos
-	global state_variable
-	state_variable = 0
 	print("Now is the computer's turn douchebag")
-	#horizontal 
-	move_logic(1,4,7)
-	move_logic(4,7,1)
-	move_logic(2,5,8)
-	move_logic(5,8,2)
-	move_logic(3,6,9)
-	move_logic(6,9,3)
-	#vertical
-	move_logic(1,2,3)
-	move_logic(2,3,1)
-	move_logic(4,5,6)
-	move_logic(5,6,4)
-	move_logic(7,8,9)
-	move_logic(8,9,7)
-	#diagonal
-	move_logic(3,5,7)
-	move_logic(7,5,3)
-	move_logic(1,5,9)
-	move_logic(5,9,1)
-	# print(state_variable)
+	if board_map[1] == 'X' and board_map[4] == 'X' and is_available(7):
+		computer_game_input(7)
 
-	if state_variable == 0:
-	 	choose_random()
+	elif board_map[4] == 'X' and board_map[7] == 'X' and is_available(1):
+		computer_game_input(1)
+
+	elif board_map[2] == 'X' and board_map[5] == 'X' and is_available(8):
+		computer_game_input(8)
+
+	elif board_map[5] == 'X' and board_map[8] == 'X' and is_available(2):
+		computer_game_input(2)
+
+	elif board_map[3] == 'X' and board_map[6] == 'X' and is_available(9):
+		computer_game_input(9)
+
+		#horizontal all combos
+
+	elif board_map[1] == 'X' and board_map[2] == 'X' and is_available(3):
+		computer_game_input(3)
+
+	elif board_map[2] == 'X' and board_map[3] == 'X' and is_available(1):
+		computer_game_input(1)
+
+	elif board_map[4] == 'X' and board_map[5] == 'X' and is_available(6):
+		computer_game_input(6)
+
+	elif board_map[5] == 'X' and board_map[6] == 'X' and is_available(4):
+		computer_game_input(4)
+
+	elif board_map[7] == 'X' and board_map[8] == 'X' and is_available(9):
+		computer_game_input(9)
+
+	elif board_map[8] == 'X' and board_map[9] == 'X' and is_available(7):
+		computer_game_input(7)
+
+		#diagonal all combos
+
+	elif board_map[3] == 'X' and board_map[5] == 'X' and is_available(7):
+		computer_game_input(7)
+
+	elif board_map[7] == 'X' and board_map[5] == 'X' and is_available(3):
+		computer_game_input(3)
+
+	elif board_map[1] == 'X' and board_map[5] == 'X' and is_available(9):
+		computer_game_input(9)
+
+	elif board_map[5] == 'X' and board_map[9] == 'X' and is_available(1):
+		computer_game_input(1)
+
+	else:
+		choose_random()
 
 	make_board()
 	
