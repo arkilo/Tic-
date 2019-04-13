@@ -120,4 +120,4 @@ def computer_move():
 	make_board()
 	
 
-	inadionsoidioasdoiands
+	
